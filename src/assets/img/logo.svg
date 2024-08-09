@@ -1,0 +1,12 @@
+<svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="150" height="100" fill="none" />
+
+  <!-- Monogram (AK) -->
+  <text x="10" y="80" font-family="Arial, sans-serif" font-size="100" fill=" rgb(210, 210, 210)" font-weight="bold">
+    A
+  </text>
+  <text x="50" y="80" font-family="Arial, sans-serif" font-size="100" fill="#bfa5d3" font-weight="bold">
+    K
+  </text>
+</svg>

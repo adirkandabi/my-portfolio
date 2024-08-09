@@ -1,38 +1,202 @@
+/* Custom Fonts */
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Book.ttf");
+  font-weight: 400;
+}
+/* Default CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  min-width: 344px;
+  min-height: 100vh !important;
+  position: relative;
+  background: linear-gradient(to right, #160922, #442957);
+
+  color: #fff !important;
+  font-family: "Centra", sans-serif !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin-top: 60px; /* Adjust this value based on the actual height of your nav */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+nav {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px !important;
+  z-index: 9999;
+  transition: all 0.3s;
+}
+nav.fixed {
+  position: fixed !important;
+  box-shadow: 2px 4px 6px rgba(5, 0, 0, 0.3) !important;
+  width: 100%; /* Ensure the nav spans the full width */
+  top: 0; /* Ensure the nav is fixed to the top of the page */
+  background-color: #1b0f24;
+}
+
+.logo {
+}
+.sections {
+  display: flex;
+  color: inherit !important;
+  text-decoration: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+@media (max-width: 785px) {
+  .sections {
+    margin-right: 10rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 640px) {
+  .sections {
+    margin-right: 7rem;
+  }
+}
+@media (max-width: 565px) {
+  .sections {
+    margin-right: 4rem;
+    gap: 1rem;
+  }
+}
+@media (max-width: 487px) {
+  .sections {
+    font-size: 15px;
+    margin-right: 1rem;
+    gap: 1rem;
+  }
+}
+@media (max-width: 425px) {
+  .sections {
+    gap: 0.3rem;
+  }
+}
+@media (max-width: 401px) {
+  .sections {
+    margin-right: 0;
+  }
+}
+@media (max-width: 387px) {
+  .sections {
+    margin-left: -3rem;
+  }
+}
+.nav-text {
+  color: white !important;
+  text-decoration: none !important;
+  padding: 10px;
+  transition: all 0.3s;
+}
+@media (min-width: 487px) {
+  .nav-text {
+    border: 1px solid white;
+    box-shadow: 2px 4px 6px rgba(5, 0, 0, 0.3);
+    border-radius: 180px;
+  }
+  .nav-text:hover {
+    background-color: white;
+    border-color: black !important;
+    color: black !important;
+  }
+}
+.navrbar-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.social-icon {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon img {
+  transition: all 0.1s ease-in !important;
+  width: 30px;
+}
+.social-icon img:hover {
+  transform: scale(1.4);
+}
+.navrbar-social {
+  @media (max-width: 785px) {
+    display: none;
+  }
+}
+.navrbar-social button {
+  background: none;
+  color: white;
+  border-color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border-width: 1px;
+  box-shadow: 2px 4px 6px rgba(5, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+.navrbar-social button:hover {
+  color: black;
+  border-color: black !important;
+  background-color: white;
+}
+footer {
+  background-color: #1b0f24;
+  width: 100%;
+}
+.footer-social {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  padding: 8px;
+  margin: 0;
+}
+footer a {
   color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  margin-left: 5px;
 }
