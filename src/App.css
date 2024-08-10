@@ -17,8 +17,10 @@
 /* Default CSS */
 
 * {
+  scrollbar-width: hidden;
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
 }
 html {
@@ -27,14 +29,19 @@ html {
 }
 body {
   font-weight: 400;
-  overflow-x: hidden;
+
   min-width: 344px;
   min-height: 100vh !important;
   position: relative;
-  background: linear-gradient(to right, #160922, #442957);
+  background-image: url("./assets/img/banner-bg.png");
+  background-repeat: repeat;
+  background-size: cover;
 
   color: #fff !important;
   font-family: "Centra", sans-serif !important;
+}
+.highlight-letter {
+  color: #bfa5d3 !important;
 }
 h1,
 h2,
@@ -50,29 +57,27 @@ h6 {
   text-align: center;
 }
 
-body {
-  margin-top: 60px; /* Adjust this value based on the actual height of your nav */
-}
-
 nav {
+  position: sticky !important;
   display: flex !important;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  opacity: 0;
+  top: 0;
+  width: 100%;
   padding: 10px !important;
   z-index: 9999;
-  transition: all 0.3s;
+  transition: all 0.5s;
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: 0s;
 }
+
 nav.fixed {
-  position: fixed !important;
   box-shadow: 2px 4px 6px rgba(5, 0, 0, 0.3) !important;
-  width: 100%; /* Ensure the nav spans the full width */
-  top: 0; /* Ensure the nav is fixed to the top of the page */
   background-color: #1b0f24;
 }
 
-.logo {
-}
 .sections {
   display: flex;
   color: inherit !important;
@@ -125,18 +130,19 @@ nav.fixed {
 .nav-text {
   color: white !important;
   text-decoration: none !important;
+  background: none;
+  border: none;
   padding: 10px;
   transition: all 0.3s;
 }
 @media (min-width: 487px) {
   .nav-text {
     border: 1px solid white;
-    box-shadow: 2px 4px 6px rgba(5, 0, 0, 0.3);
+    box-shadow: 2px 4px 6px rgba(77, 77, 77, 0.3);
     border-radius: 180px;
   }
   .nav-text:hover {
     background-color: white;
-    border-color: black !important;
     color: black !important;
   }
 }
@@ -180,7 +186,7 @@ nav.fixed {
   background-color: white;
 }
 footer {
-  background-color: #1b0f24;
+  background-image: url("./assets/img/footer-bg.png");
   width: 100%;
 }
 .footer-social {
@@ -199,4 +205,136 @@ footer a {
   color: white;
 
   margin-left: 5px;
+}
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 50rem;
+}
+
+.home-title {
+  margin-top: 4rem;
+  margin-left: 2rem;
+  text-align: left;
+  font-size: 3rem;
+  font-weight: 900;
+}
+@media (min-width: 500px) {
+  .home-title {
+    font-size: 4rem;
+  }
+}
+.line {
+  opacity: 0;
+  transform: translateY(20px); /* Start slightly below */
+  animation: fadeInUp 0.5s forwards;
+}
+.line span {
+  color: #bfa5d3;
+}
+.line1 {
+  background: linear-gradient(4deg, #744794, #d4d4d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: -1rem;
+  animation-delay: 0s;
+}
+
+.line2 {
+  margin-bottom: 0rem;
+  animation-delay: 0.5s;
+}
+
+.line3 {
+  line-height: 3rem;
+  animation-delay: 1s;
+}
+.line3 .dot {
+  animation-delay: 1.5;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.connect-btn {
+  margin-top: 2rem;
+  margin-left: 15rem;
+  background: none;
+  border-radius: 7px;
+  border: 2px solid white;
+  width: 8rem;
+  height: 3rem;
+  color: white;
+
+  opacity: 0;
+  transition: color 0.4s ease;
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+.animation-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+
+  z-index: -1;
+  transition: transform 0.4s ease; /* Smooth transition for the background */
+  transform: scaleX(0); /* Start with background hidden */
+  transform-origin: left; /* Start the transform from the left */
+}
+
+.animation-btn:hover {
+  color: black;
+  background-color: transparent;
+}
+
+.animation-btn:hover::before {
+  transform: scaleX(1);
+}
+
+@media (max-width: 500px) {
+  .connect-btn {
+    margin-left: 5rem;
+  }
+}
+@media (min-width: 500px) {
+  .connect-btn {
+    margin-left: 8rem;
+  }
+}
+@media (min-width: 660px) {
+  .connect-btn {
+    margin-left: 15rem;
+  }
+}
+.title {
+  /* font-family: rubikregular, Arial, Helvetica, sans-serif; */
+  font-family: secular, Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  text-decoration: underline;
+  text-decoration-color: #bfa5d3;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 10px;
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 50rem;
+  margin-left: 5rem;
+}
+.about-container p {
+  font-size: 20px;
+  width: 50rem;
+}
+.company-link {
+  text-decoration: none;
 }

@@ -23,7 +23,9 @@ export const NavBar = () => {
   // }, []);
   window.addEventListener("scroll", function () {
     const nav = this.document.querySelector("nav");
-    if (this.window.scrollY > 0) {
+    const scrollY = window.scrollY || this.document.documentElement.scrollTop;
+
+    if (scrollY > 0) {
       nav.classList.add("fixed");
     } else {
       nav.classList.remove("fixed");
@@ -32,33 +34,37 @@ export const NavBar = () => {
 
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
+    switch (value) {
+      case "home":
+        window.scrollTo(0, 0);
+        break;
+      case "about":
+        window.scrollTo(0, 1017);
+    }
   };
   return (
     <nav className="navbar">
       <img className="logo" src={logo} alt="Logo" />
 
       <div className="sections">
-        <a
-          href="#home"
+        <button
           className={activeLink === "home" ? "active nav-text" : "nav-text"}
           onClick={() => onUpdateActiveLink("home")}
         >
           Home
-        </a>
-        <a
-          href="#skills"
-          className={activeLink === "skills" ? "active nav-text" : "nav-text"}
-          onClick={() => onUpdateActiveLink("skills")}
+        </button>
+        <button
+          className={activeLink === "about" ? "active nav-text" : "nav-text"}
+          onClick={() => onUpdateActiveLink("about")}
         >
-          Skills
-        </a>
-        <a
-          href="#projects"
+          About
+        </button>
+        <button
           className={activeLink === "projects" ? "active nav-text" : "nav-text"}
           onClick={() => onUpdateActiveLink("projects")}
         >
           Projects
-        </a>
+        </button>
       </div>
       <span className="navrbar-social">
         <div className="social-icon">
@@ -76,7 +82,10 @@ export const NavBar = () => {
             <img src={navIcon3} alt="github" />
           </a>
         </div>
-        <button className="vvd" onClick={() => console.log("connect")}>
+        <button
+          className="navbar-connect-btn"
+          onClick={() => console.log("connect")}
+        >
           <span>Let's Connect</span>
         </button>
       </span>

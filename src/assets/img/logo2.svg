@@ -1,0 +1,13 @@
+
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+ 
+  <rect width="300" height="100" fill="none" />
+
+  
+  <text x="10" y="90" font-family="Arial, sans-serif" font-size="110" fill="rgba(100, 100, 100, 0.5)" font-weight="bold">
+    A
+  </text>
+  <text x="55" y="90" font-family="Arial, sans-serif" font-size="110" fill="#bfa5d3" font-weight="bold">
+    K
+  </text>
+</svg>
