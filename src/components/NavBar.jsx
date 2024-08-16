@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/img/logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
@@ -8,19 +9,11 @@ import navIcon3 from "../assets/img/nav-icon3.svg";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
-  // useEffect(() => {
-  //   const onScroll = () => {
-  //     if (window.scrollY > 50) {
-  //       setScrolled(true);
-  //     } else {
-  //       setScrolled(false);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", onScroll);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, []);
   window.addEventListener("scroll", function () {
     const nav = this.document.querySelector("nav");
     const scrollY = window.scrollY || this.document.documentElement.scrollTop;
@@ -39,7 +32,14 @@ export const NavBar = () => {
         window.scrollTo(0, 0);
         break;
       case "about":
-        window.scrollTo(0, 1017);
+        const element = document.querySelector(".about-container");
+        const rect = element.getBoundingClientRect();
+        const yPosition = rect.top + window.scrollY - 150;
+        console.log(yPosition);
+        window.scrollTo({
+          top: yPosition,
+          behavior: "smooth",
+        });
     }
   };
   return (
@@ -48,19 +48,27 @@ export const NavBar = () => {
 
       <div className="sections">
         <button
-          className={activeLink === "home" ? "active nav-text" : "nav-text"}
+          className={
+            activeLink === "home" ? "active nav-text home" : "nav-text home"
+          }
           onClick={() => onUpdateActiveLink("home")}
         >
           Home
         </button>
         <button
-          className={activeLink === "about" ? "active nav-text" : "nav-text"}
+          className={
+            activeLink === "about" ? "active nav-text about" : "nav-text about"
+          }
           onClick={() => onUpdateActiveLink("about")}
         >
           About
         </button>
         <button
-          className={activeLink === "projects" ? "active nav-text" : "nav-text"}
+          className={
+            activeLink === "projects"
+              ? "active nav-text projects"
+              : "nav-text projects"
+          }
           onClick={() => onUpdateActiveLink("projects")}
         >
           Projects
@@ -89,6 +97,32 @@ export const NavBar = () => {
           <span>Let's Connect</span>
         </button>
       </span>
+      <FontAwesomeIcon
+        className="menu-btn"
+        icon={faBars}
+        onClick={() => toggleMenu()}
+      />
+      <ul className={`menu ${menuOpen ? "open" : ""}`}>
+        <li>
+          <a
+            className="linkedin"
+            href="https://www.linkedin.com/in/adirkandabi"
+            target="_blank"
+          >
+            <img src={navIcon1} alt="linkedin" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/adir.kandabi/" target="_blank">
+            <img src={navIcon2} alt="facebook" />
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/adirkandabi" target="_blank">
+            <img src={navIcon3} alt="github" />
+          </a>
+        </li>
+      </ul>
     </nav>
   );
 };

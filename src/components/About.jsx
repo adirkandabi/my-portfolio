@@ -1,7 +1,9 @@
+import React from "react";
+
 export const About = () => {
   return (
     <div className="about-container">
-      <h1 class="title">About Me</h1>
+      <h1 className="title">About Me</h1>
       <p>
         I am a third-year Computer Science student and a full-time Full-Stack
         Developer at{" "}
