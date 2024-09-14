@@ -33,7 +33,7 @@ html {
 }
 body {
   font-weight: 400;
-
+  min-width: 290px;
   width: 100%;
   height: 100%;
   position: relative;
@@ -339,28 +339,73 @@ footer a {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-bottom: 50rem;
+  margin-bottom: 29rem;
   margin-left: 8vw;
 }
 .about-container p {
   font-size: 4vw;
   width: 82%;
+
   max-width: 43rem;
-  @media (min-width: 800px) {
+  @media (min-width: 500px) {
+    text-align: justify;
     font-size: 20px !important;
   }
 }
 .company-link {
   text-decoration: none;
 }
+
+.projects-container {
+  margin-left: 2vw;
+  margin-right: 2vw;
+
+  margin-bottom: 29rem;
+  width: 90vw;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.details h3 {
+  align-items: center;
+}
+.details p {
+  text-align: left;
+  margin-left: 2vw;
+}
+.slide-content img {
+  max-width: 50%;
+  align-self: center;
+  height: auto;
+}
+.swiper-scrollbar {
+  background: #f0f0f0 !important;
+}
+.swiper-scrollbar-drag {
+  background: #bfa5d3 !important;
+}
+
 .connect-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-left: 3vw;
   margin-bottom: 3rem;
-  width: 90%;
-  height: 60vh;
+  width: clamp(5rem, 90%, 50rem);
+  height: 70vh;
   padding: 10px;
   background: 5rem;
   border-radius: 10px;
@@ -371,7 +416,9 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 30%;
+  justify-content: center;
+  width: 74%;
+  max-width: 26rem;
   margin-left: 2rem;
   gap: 1rem;
 }
@@ -380,12 +427,16 @@ form {
   padding: 10px;
   border: none;
   color: white;
-  background: #bfa5d3;
+  background: #1b0f24;
   border-radius: 10px;
   transition: all 0.3s;
 }
+.sending-status {
+  align-self: center;
+  font-size: min(39px, 5vw);
+}
 .submit:hover {
-  background-color: #1b0f24;
+  background-color: #bfa5d3;
 }
 .field {
   width: 100%;

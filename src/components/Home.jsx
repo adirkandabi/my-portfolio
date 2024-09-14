@@ -15,7 +15,15 @@ export const Home = () => {
       </div>
       <button
         className="animation-btn connect-btn"
-        onClick={() => console.log("connect")}
+        onClick={() => {
+          const element = document.querySelector(`.connect-container`);
+          const rect = element.getBoundingClientRect();
+          const yPosition = rect.top + window.scrollY - 150;
+          window.scrollTo({
+            top: yPosition,
+            behavior: "smooth",
+          });
+        }}
       >
         Let's Connect!
       </button>

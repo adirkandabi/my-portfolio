@@ -27,20 +27,13 @@ export const NavBar = () => {
 
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
-    switch (value) {
-      case "home":
-        window.scrollTo(0, 0);
-        break;
-      case "about":
-        const element = document.querySelector(".about-container");
-        const rect = element.getBoundingClientRect();
-        const yPosition = rect.top + window.scrollY - 150;
-        console.log(yPosition);
-        window.scrollTo({
-          top: yPosition,
-          behavior: "smooth",
-        });
-    }
+    const element = document.querySelector(`.${value}-container`);
+    const rect = element.getBoundingClientRect();
+    const yPosition = rect.top + window.scrollY - 150;
+    window.scrollTo({
+      top: yPosition,
+      behavior: "smooth",
+    });
   };
   return (
     <nav className="navbar">
@@ -92,7 +85,7 @@ export const NavBar = () => {
         </div>
         <button
           className="navbar-connect-btn"
-          onClick={() => console.log("connect")}
+          onClick={() => onUpdateActiveLink("connect")}
         >
           <span>Let's Connect</span>
         </button>
